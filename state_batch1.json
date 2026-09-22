@@ -1,0 +1,26 @@
+{
+  "1050343302646341": {"ads": {}, "campaigns": {
+    "120253810989850422": {"original_daily_budget": 100000, "increased_today": true, "increase_date": "2026-09-22"},
+    "120253795504930422": {"original_daily_budget": 300000, "increased_today": true, "increase_date": "2026-09-22"},
+    "120253725285720422": {"original_daily_budget": 150000, "increased_today": true, "increase_date": "2026-09-22"}
+  }, "last_run": "2026-09-22 13:22 WIB"},
+  "814396810761205": {"ads": {}, "campaigns": {
+    "120253387226870019": {"original_daily_budget": 250000, "increased_today": true, "increase_date": "2026-09-22"},
+    "120253328640000019": {"original_daily_budget": 100000, "increased_today": true, "increase_date": "2026-09-22"}
+  }, "last_run": "2026-09-22 13:22 WIB"},
+  "1060984719243481": {"ads": {}, "campaigns": {
+    "120252989463000414": {"original_daily_budget": 100000, "increased_today": true, "increase_date": "2026-09-22"},
+    "120252989451540414": {"original_daily_budget": 300000, "increased_today": true, "increase_date": "2026-09-22"}
+  }, "last_run": "2026-09-22 13:22 WIB"},
+  "521083143750270": {"ads": {
+    "120252121024880365": {"paused_by_automation": true, "paused_at": "2026-09-22 13:22 WIB", "paused_spend_snapshot": 44223, "reactivated_at": null, "skip_next_check": false, "permanently_dead": false}
+  }, "campaigns": {
+    "120252109239850365": {"original_daily_budget": 300000, "increased_today": true, "increase_date": "2026-09-22"}
+  }, "last_run": "2026-09-22 13:22 WIB"},
+  "482252744648260": {"ads": {}, "campaigns": {
+    "120254451898910427": {"original_daily_budget": 300000, "increased_today": true, "increase_date": "2026-09-22"}
+  }, "last_run": "2026-09-22 13:22 WIB"},
+  "1076195694707828": {"ads": {}, "campaigns": {}, "last_run": "2026-09-22 13:22 WIB"},
+  "873443374652541": {"ads": {}, "campaigns": {}, "last_run": "2026-09-22 13:22 WIB"},
+  "1019832712800468": {"ads": {}, "campaigns": {}, "last_run": "2026-09-22 13:22 WIB"}
+}
