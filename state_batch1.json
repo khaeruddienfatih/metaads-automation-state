@@ -33,16 +33,16 @@
         "increase_date": "2026-09-22"
       }
     },
-    "last_run": "2026-09-23 03:17 WIB"
+    "last_run": "2026-09-23 04:08 WIB"
   },
   "814396810761205": {
     "ads": {
       "120253385416690019": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 15:19 WIB",
         "paused_spend_snapshot": 31308,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       }
     },
@@ -60,7 +60,7 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 03:17 WIB"
+    "last_run": "2026-09-23 04:08 WIB"
   },
   "1060984719243481": {
     "ads": {},
@@ -78,24 +78,24 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 03:17 WIB"
+    "last_run": "2026-09-23 04:08 WIB"
   },
   "521083143750270": {
     "ads": {
       "120252121024880365": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 13:22 WIB",
         "paused_spend_snapshot": 44223,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       },
       "120252109488160365": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 17:19 WIB",
         "paused_spend_snapshot": 30641,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       }
     },
@@ -113,40 +113,40 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 03:17 WIB"
+    "last_run": "2026-09-23 04:08 WIB"
   },
   "482252744648260": {
     "ads": {
       "120254451898860427": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 16:18 WIB",
         "paused_spend_snapshot": 31079,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       },
       "120254480956200427": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 19:22 WIB",
         "paused_spend_snapshot": 30057,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       },
       "120254480956060427": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 22:16 WIB",
         "paused_spend_snapshot": 30373,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       },
       "120254480956130427": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 22:16 WIB",
         "paused_spend_snapshot": 32150,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       }
     },
@@ -158,16 +158,16 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 03:17 WIB"
+    "last_run": "2026-09-23 04:08 WIB"
   },
   "1076195694707828": {
     "ads": {
       "120251736743620294": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 14:18 WIB",
         "paused_spend_snapshot": 38385,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       },
       "120251724934810294": {
@@ -176,22 +176,22 @@
         "paused_spend_snapshot": 34671,
         "reactivated_at": null,
         "skip_next_check": false,
-        "permanently_dead": false
+        "permanently_dead": true
       },
       "120251721952700294": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 17:19 WIB",
         "paused_spend_snapshot": 32317,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       },
       "120251724934790294": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 22:16 WIB",
         "paused_spend_snapshot": 31130,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       }
     },
@@ -203,7 +203,7 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 03:17 WIB"
+    "last_run": "2026-09-23 04:08 WIB"
   },
   "873443374652541": {
     "ads": {
@@ -213,22 +213,22 @@
         "paused_spend_snapshot": 30581,
         "reactivated_at": null,
         "skip_next_check": false,
-        "permanently_dead": false
+        "permanently_dead": true
       },
       "120248094548330678": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 20:18 WIB",
         "paused_spend_snapshot": 45443,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       },
       "120248123223550678": {
-        "paused_by_automation": true,
+        "paused_by_automation": false,
         "paused_at": "2026-09-22 22:16 WIB",
         "paused_spend_snapshot": 30341,
-        "reactivated_at": null,
-        "skip_next_check": false,
+        "reactivated_at": "2026-09-23 04:08 WIB",
+        "skip_next_check": true,
         "permanently_dead": false
       }
     },
@@ -240,11 +240,11 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 03:17 WIB"
+    "last_run": "2026-09-23 04:08 WIB"
   },
   "1019832712800468": {
     "ads": {},
     "campaigns": {},
-    "last_run": "2026-09-23 03:17 WIB"
+    "last_run": "2026-09-23 04:08 WIB"
   }
 }
