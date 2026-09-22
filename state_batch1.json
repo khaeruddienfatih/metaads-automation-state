@@ -5,33 +5,38 @@
     "120253725285720422": {"original_daily_budget": 150000, "last_increase_spend": 113105, "last_increase_hasil": 3, "increase_date": "2026-09-22"},
     "120253784252400422": {"original_daily_budget": null, "last_increase_spend": 66672, "last_increase_hasil": 1, "increase_date": "2026-09-22"},
     "120253784237390422": {"original_daily_budget": null, "last_increase_spend": 73650, "last_increase_hasil": 1, "increase_date": "2026-09-22"}
-  }, "last_run": "2026-09-22 15:19 WIB"},
+  }, "last_run": "2026-09-22 16:20 WIB"},
   "814396810761205": {"ads": {
     "120253385416690019": {"paused_by_automation": true, "paused_at": "2026-09-22 15:19 WIB", "paused_spend_snapshot": 31308, "reactivated_at": null, "skip_next_check": false, "permanently_dead": false}
   }, "campaigns": {
     "120253387226870019": {"original_daily_budget": 250000, "last_increase_spend": 140428, "last_increase_hasil": 2, "increase_date": "2026-09-22"},
     "120253328640000019": {"original_daily_budget": 100000, "last_increase_spend": 66503, "last_increase_hasil": 2, "increase_date": "2026-09-22"}
-  }, "last_run": "2026-09-22 15:19 WIB"},
+  }, "last_run": "2026-09-22 16:20 WIB"},
   "1060984719243481": {"ads": {}, "campaigns": {
     "120252989463000414": {"original_daily_budget": 100000, "last_increase_spend": 63148, "last_increase_hasil": 5, "increase_date": "2026-09-22"},
     "120252989451540414": {"original_daily_budget": 300000, "last_increase_spend": 191212, "last_increase_hasil": 5, "increase_date": "2026-09-22"}
-  }, "last_run": "2026-09-22 15:19 WIB"},
+  }, "last_run": "2026-09-22 16:20 WIB"},
   "521083143750270": {"ads": {
     "120252121024880365": {"paused_by_automation": true, "paused_at": "2026-09-22 13:22 WIB", "paused_spend_snapshot": 44223, "reactivated_at": null, "skip_next_check": false, "permanently_dead": false}
   }, "campaigns": {
     "120252109239850365": {"original_daily_budget": 300000, "last_increase_spend": 201723, "last_increase_hasil": 6, "increase_date": "2026-09-22"},
     "120252109488130365": {"original_daily_budget": 100000, "last_increase_spend": 54897, "last_increase_hasil": 2, "increase_date": "2026-09-22"}
-  }, "last_run": "2026-09-22 15:19 WIB"},
-  "482252744648260": {"ads": {}, "campaigns": {
+  }, "last_run": "2026-09-22 16:20 WIB"},
+  "482252744648260": {"ads": {
+    "120254451898860427": {"paused_by_automation": true, "paused_at": "2026-09-22 16:18 WIB", "paused_spend_snapshot": 31079, "reactivated_at": null, "skip_next_check": false, "permanently_dead": false}
+  }, "campaigns": {
     "120254451898910427": {"original_daily_budget": 300000, "last_increase_spend": 187698, "last_increase_hasil": 7, "increase_date": "2026-09-22"}
-  }, "last_run": "2026-09-22 15:19 WIB"},
+  }, "last_run": "2026-09-22 16:18 WIB"},
   "1076195694707828": {"ads": {
-    "120251736743620294": {"paused_by_automation": true, "paused_at": "2026-09-22 14:18 WIB", "paused_spend_snapshot": 38385, "reactivated_at": null, "skip_next_check": false, "permanently_dead": false}
-  }, "campaigns": {}, "last_run": "2026-09-22 15:19 WIB"},
+    "120251736743620294": {"paused_by_automation": true, "paused_at": "2026-09-22 14:18 WIB", "paused_spend_snapshot": 38385, "reactivated_at": null, "skip_next_check": false, "permanently_dead": false},
+    "120251724934810294": {"paused_by_automation": true, "paused_at": "2026-09-22 16:20 WIB", "paused_spend_snapshot": 34671, "reactivated_at": null, "skip_next_check": false, "permanently_dead": false}
+  }, "campaigns": {
+    "120251724934780294": {"original_daily_budget": 300000, "last_increase_spend": 132857, "last_increase_hasil": 2, "increase_date": "2026-09-22"}
+  }, "last_run": "2026-09-22 16:20 WIB"},
   "873443374652541": {"ads": {
     "120248080346790678": {"paused_by_automation": true, "paused_at": "2026-09-22 15:19 WIB", "paused_spend_snapshot": 30581, "reactivated_at": null, "skip_next_check": false, "permanently_dead": false}
   }, "campaigns": {
     "120248080346920678": {"original_daily_budget": 300000, "last_increase_spend": 89228, "last_increase_hasil": 3, "increase_date": "2026-09-22"}
-  }, "last_run": "2026-09-22 15:19 WIB"},
-  "1019832712800468": {"ads": {}, "campaigns": {}, "last_run": "2026-09-22 15:19 WIB"}
+  }, "last_run": "2026-09-22 16:20 WIB"},
+  "1019832712800468": {"ads": {}, "campaigns": {}, "last_run": "2026-09-22 16:20 WIB"}
 }
