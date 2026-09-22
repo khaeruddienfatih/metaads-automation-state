@@ -31,6 +31,14 @@
       "reactivated_at": null,
       "skip_next_check": false,
       "permanently_dead": false
+    },
+    "120252158037930584": {
+      "paused_by_automation": true,
+      "paused_at": "2026-09-22 17:12 WIB",
+      "paused_spend_snapshot": 51554,
+      "reactivated_at": null,
+      "skip_next_check": false,
+      "permanently_dead": false
     }
   },
   "campaigns": {
@@ -41,5 +49,5 @@
       "increase_date": "2026-09-22"
     }
   },
-  "last_run": "2026-09-22 16:11 WIB"
+  "last_run": "2026-09-22 17:12 WIB"
 }
