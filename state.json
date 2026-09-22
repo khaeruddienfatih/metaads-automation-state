@@ -1,0 +1,14 @@
+{
+  "ads": {
+    "120252158001760584": {
+      "paused_by_automation": true,
+      "paused_at": "2026-09-22 12:58 WIB",
+      "paused_spend_snapshot": 108809,
+      "reactivated_at": null,
+      "skip_next_check": false,
+      "permanently_dead": false
+    }
+  },
+  "campaigns": {},
+  "last_run": "2026-09-22 12:58 WIB"
+}
