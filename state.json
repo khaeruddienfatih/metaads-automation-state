@@ -7,8 +7,38 @@
       "reactivated_at": null,
       "skip_next_check": false,
       "permanently_dead": false
+    },
+    "120252158211290584": {
+      "paused_by_automation": true,
+      "paused_at": "2026-09-22 14:12 WIB",
+      "paused_spend_snapshot": 37782,
+      "reactivated_at": null,
+      "skip_next_check": false,
+      "permanently_dead": false
+    },
+    "120252158001700584": {
+      "paused_by_automation": true,
+      "paused_at": "2026-09-22 14:12 WIB",
+      "paused_spend_snapshot": 59271,
+      "reactivated_at": null,
+      "skip_next_check": false,
+      "permanently_dead": false
+    },
+    "120252158001690584": {
+      "paused_by_automation": true,
+      "paused_at": "2026-09-22 14:12 WIB",
+      "paused_spend_snapshot": 31295,
+      "reactivated_at": null,
+      "skip_next_check": false,
+      "permanently_dead": false
     }
   },
-  "campaigns": {},
-  "last_run": "2026-09-22 13:12 WIB"
+  "campaigns": {
+    "120251586630690584": {
+      "original_daily_budget": 330000,
+      "increased_today": true,
+      "increase_date": "2026-09-22"
+    }
+  },
+  "last_run": "2026-09-22 14:12 WIB"
 }
