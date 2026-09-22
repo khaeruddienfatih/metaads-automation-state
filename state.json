@@ -36,9 +36,10 @@
   "campaigns": {
     "120251586630690584": {
       "original_daily_budget": 330000,
-      "increased_today": true,
+      "last_increase_spend": 412816,
+      "last_increase_hasil": 4,
       "increase_date": "2026-09-22"
     }
   },
-  "last_run": "2026-09-22 15:11 WIB"
+  "last_run": "2026-09-22 16:11 WIB"
 }
