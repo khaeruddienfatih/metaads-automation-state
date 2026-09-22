@@ -5,7 +5,7 @@
       "paused_at": "2026-09-22 12:58 WIB",
       "paused_spend_snapshot": 108809,
       "reactivated_at": "2026-09-23 04:05 WIB",
-      "skip_next_check": true,
+      "skip_next_check": false,
       "permanently_dead": false
     },
     "120252158211290584": {
@@ -21,7 +21,7 @@
       "paused_at": "2026-09-22 14:12 WIB",
       "paused_spend_snapshot": 59271,
       "reactivated_at": "2026-09-23 04:05 WIB",
-      "skip_next_check": true,
+      "skip_next_check": false,
       "permanently_dead": false
     },
     "120252158001690584": {
@@ -29,7 +29,7 @@
       "paused_at": "2026-09-22 14:12 WIB",
       "paused_spend_snapshot": 31295,
       "reactivated_at": "2026-09-23 04:05 WIB",
-      "skip_next_check": true,
+      "skip_next_check": false,
       "permanently_dead": false
     },
     "120252158037930584": {
@@ -49,5 +49,5 @@
       "increase_date": null
     }
   },
-  "last_run": "2026-09-23 04:05 WIB"
+  "last_run": "2026-09-23 04:11 WIB"
 }
