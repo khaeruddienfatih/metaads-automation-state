@@ -21,7 +21,7 @@
       "paused_at": "2026-09-23 14:11 WIB",
       "paused_spend_snapshot": 31396,
       "reactivated_at": "2026-09-24 04:17 WIB",
-      "skip_next_check": true,
+      "skip_next_check": false,
       "permanently_dead": false
     },
     "120252158001690584": {
@@ -49,5 +49,5 @@
       "increase_date": null
     }
   },
-  "last_run": "2026-09-24 04:17 WIB"
+  "last_run": "2026-09-24 05:12 WIB"
 }
