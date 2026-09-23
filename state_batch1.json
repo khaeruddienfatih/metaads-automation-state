@@ -33,7 +33,7 @@
         "increase_date": "2026-09-22"
       }
     },
-    "last_run": "2026-09-23 08:18 WIB"
+    "last_run": "2026-09-23 12:20 WIB"
   },
   "814396810761205": {
     "ads": {
@@ -60,7 +60,7 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 08:18 WIB"
+    "last_run": "2026-09-23 12:20 WIB"
   },
   "1060984719243481": {
     "ads": {},
@@ -78,7 +78,7 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 08:18 WIB"
+    "last_run": "2026-09-23 12:20 WIB"
   },
   "521083143750270": {
     "ads": {
@@ -121,10 +121,18 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 08:18 WIB"
+    "last_run": "2026-09-23 12:20 WIB"
   },
   "482252744648260": {
     "ads": {
+      "120254451898950427": {
+        "paused_by_automation": true,
+        "paused_at": "2026-09-23 12:20 WIB",
+        "paused_spend_snapshot": 52004,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      },
       "120254451898860427": {
         "paused_by_automation": false,
         "paused_at": "2026-09-22 16:18 WIB",
@@ -166,10 +174,18 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 08:18 WIB"
+    "last_run": "2026-09-23 12:20 WIB"
   },
   "1076195694707828": {
     "ads": {
+      "120251718416990294": {
+        "paused_by_automation": true,
+        "paused_at": "2026-09-23 12:20 WIB",
+        "paused_spend_snapshot": 30138,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      },
       "120251736743620294": {
         "paused_by_automation": false,
         "paused_at": "2026-09-22 14:18 WIB",
@@ -211,7 +227,7 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 08:18 WIB"
+    "last_run": "2026-09-23 12:20 WIB"
   },
   "873443374652541": {
     "ads": {
@@ -264,11 +280,11 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-23 08:18 WIB"
+    "last_run": "2026-09-23 12:20 WIB"
   },
   "1019832712800468": {
     "ads": {},
     "campaigns": {},
-    "last_run": "2026-09-23 08:18 WIB"
+    "last_run": "2026-09-23 12:20 WIB"
   }
 }
