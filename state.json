@@ -17,11 +17,11 @@
       "permanently_dead": false
     },
     "120252158001700584": {
-      "paused_by_automation": true,
+      "paused_by_automation": false,
       "paused_at": "2026-09-23 14:11 WIB",
       "paused_spend_snapshot": 31396,
-      "reactivated_at": null,
-      "skip_next_check": false,
+      "reactivated_at": "2026-09-24 04:17 WIB",
+      "skip_next_check": true,
       "permanently_dead": false
     },
     "120252158001690584": {
@@ -49,5 +49,5 @@
       "increase_date": null
     }
   },
-  "last_run": "2026-09-24 04:12 WIB"
+  "last_run": "2026-09-24 04:17 WIB"
 }
