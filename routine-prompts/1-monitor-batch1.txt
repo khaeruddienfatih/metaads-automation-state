@@ -1,0 +1,45 @@
+Kamu menjalankan SATU SIKLUS otomasi Meta Ads untuk 8 akun iklan grup bisnis travel Umrah "Elharamain" (SELAIN akun Tira yang sudah punya automasi terpisah dengan state.json sendiri, dan SELAIN semua akun bertema "Haji"). Gunakan MCP tool Meta-Ads yang terhubung (ads_get_ad_entities, ads_update_entity, ads_activate_entity, dll). Isi parameter client_conversation_id dengan id 20-karakter acak yang SAMA untuk SEMUA pemanggilan tool Meta Ads di siklus ini (semua 8 akun pakai id yang sama), dan client_model dengan model id kamu.
+
+RULE #2 (auto-naik budget campaign) DINONAKTIFKAN SEMENTARA atas permintaan user pada 2026-09-22. JANGAN naikkan daily_budget campaign manapun di akun manapun siklus ini, apapun kondisinya. Siklus ini HANYA menjalankan RULE #1 (auto-pause).
+
+PERUBAHAN 2026-09-24 (permintaan user): RULE #1 sekarang mem-pause di LEVEL AD SET, BUKAN level ad. JANGAN pause ad satu per satu lagi.
+
+DAFTAR 8 AKUN (proses SATU PER SATU, independen, jalankan RULE#1 di bawah untuk tiap akun sebelum lanjut ke akun berikutnya):
+1. 1050343302646341 (Fikri)
+2. 814396810761205 (AIni)
+3. 1060984719243481 (Irfan)
+4. 521083143750270 (Elharamain)
+5. 482252744648260 (Hanif)
+6. 1076195694707828 (Diana)
+7. 873443374652541 (Alif)
+8. 1019832712800468 (Nida)
+
+Semua akun ini mata uang IDR, optimization_goal=CONVERSATIONS, destination_type=WHATSAPP di semua ad set ACTIVE-nya (sudah diverifikasi manual 2026-09-22).
+
+STATE PERSISTEN (WAJIB):
+Repo git https://github.com/khaeruddienfatih/metaads-automation-state sudah ter-clone di workspace. File state: state_batch1.json di ROOT repo (BUKAN state.json - itu punya automasi Tira, JANGAN disentuh/ditimpa). Kalau state_batch1.json belum ada/kosong, buat dengan struktur:
+{}
+Untuk tiap ad_account_id di atas, kalau key-nya (string ad_account_id) belum ada di object root state_batch1.json, buat default:
+"<ad_account_id>": {"ads": {}, "adsets": {}, "campaigns": {}, "last_run": null}
+Kalau sub-object akun sudah ada tapi belum punya key "adsets", tambahkan "adsets": {}. JANGAN hapus/ubah isi "ads" (entri lama level ad, masih dipakai routine reaktivasi).
+Entri "adsets" (key=adset_id): {"name": string, "campaign_id": string, "paused_by_automation": bool, "paused_at": "YYYY-MM-DD HH:MM WIB"|null, "paused_spend_snapshot": number|null, "reactivated_at": "YYYY-MM-DD HH:MM WIB"|null, "skip_next_check": bool, "permanently_dead": bool}
+
+PARSING CURRENCY: field amount_spent berformat string Indonesia contoh "Rp220.000 IDR" atau "Rp0 IDR", atau object {"value":"220000","unit":"IDR"}. Untuk string: buang "Rp","IDR",spasi, lalu buang semua titik "." (pemisah ribuan bukan desimal) -> integer rupiah. Untuk object: pakai value sebagai integer rupiah.
+
+PARSING "hasil": gunakan field `results` (indicator actions:onsite_conversion.messaging_conversation_started_7d). Kalau results.value=="Not available" atau field tidak ada -> hasil=0. Kalau ada results.values[] -> jumlahkan value numeriknya.
+
+PAGAR PENGAMAN (WAJIB, per akun, independen satu sama lain):
+- Untuk setiap iterasi akun, HANYA operasikan entity dengan ad_account_id PERSIS sama dengan akun itu - jangan campur antar akun dalam satu iterasi.
+- JANGAN PERNAH delete/archive apapun. Hanya status PAUSED/ACTIVE.
+- JANGAN ubah status campaign atau ad di siklus ini. Yang di-pause HANYA ad set.
+- Sirkuit-breaker PER AKUN: kalau rule#1 di akun itu akan mem-pause LEBIH dari 50% total AD SET ACTIVE akun itu, JANGAN eksekusi pause sama sekali untuk akun itu siklus ini; catat sirkuit-breaker aktif untuk akun itu di ringkasan (sebutkan ad set kandidatnya + angka), LANJUT ke akun berikutnya (jangan hentikan seluruh siklus).
+- Kalau 1 pemanggilan tool error untuk 1 entity/akun, catat errornya, lanjut ke entity/akun berikutnya (jangan berhenti total).
+
+RULE #1 (level AD SET, per akun, threshold: spend ad set hari ini >= Rp30.000 DAN hasil ad set hari ini = 0 -> pause AD SET):
+Panggil ads_get_ad_entities ad_account_id=<akun ini> level=adset date_preset=today fields=["id","name","campaign_id","status","effective_status","amount_spent","results"]. Filter effective_status==ACTIVE (via filtering param, fallback manual kalau ditolak). Untuk tiap ad set ACTIVE: kalau state_batch1[akun].adsets[adset_id].skip_next_check==true, LEWATI evaluasi pause ad set ini siklus ini (lalu set skip_next_check=false untuk siklus berikutnya). Parse spend_today & hasil_today di level ad set. Kumpulkan dulu semua kandidat (spend_today>=30000 DAN hasil_today==0) TANPA eksekusi dulu untuk cek sirkuit-breaker akun ini. Kalau lolos, untuk tiap kandidat: ads_update_entity entity_type="ad_set" entity_id=adset_id ad_account_id=<akun ini> fields={"status":"PAUSED"}. Update state_batch1[akun].adsets[adset_id]: name, campaign_id, paused_by_automation=true, paused_at=<WIB now>, paused_spend_snapshot=spend_today, reactivated_at=null, skip_next_check=false (jangan turunkan permanently_dead kalau sudah true; default false untuk entri baru).
+
+DI AKHIR SIKLUS (setelah SEMUA 8 akun diproses, WAJIB):
+1. Susun SATU ringkasan gabungan berbahasa Indonesia mencakup ke-8 akun: waktu WIB, per akun daftar aksi (nama akun + nama AD SET + aksi + angka spend/hasil) atau "Tidak ada aksi" kalau tak ada, dan error/warning/sirkuit-breaker per akun kalau ada. Sebutkan bahwa pause dilakukan di level ad set.
+2. Update "last_run" di tiap sub-object akun yang diproses dengan timestamp WIB sekarang. Commit SATU KALI (bukan per akun), pesan singkat "Batch1 Monitor - <waktu WIB>", push ke branch default repo. Kalau push gagal non-fast-forward, git pull --rebase lalu push ulang sekali; kalau tetap gagal, tambahkan ke ringkasan bahwa STATE TIDAK TERSIMPAN.
+3. Kirim ringkasan gabungan ke Telegram: `curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" --data-urlencode chat_id="$TELEGRAM_CHAT_ID" --data-urlencode text="<RINGKASAN>"`. Environment variable TELEGRAM_BOT_TOKEN dan TELEGRAM_CHAT_ID sudah tersedia. Kirim SETIAP siklus jalan, termasuk kalau tidak ada aksi. Kalau respons tidak berisi "ok":true, ulangi maksimal 2 kali lagi dengan jeda 3 detik. Kalau tetap gagal, catat error itu tapi jangan sampai menggagalkan langkah lain.
+4. Tulis ringkasan yang sama sebagai output akhir kamu.

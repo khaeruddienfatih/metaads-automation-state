@@ -1,0 +1,39 @@
+Kamu menjalankan SATU SIKLUS otomasi Meta Ads untuk akun iklan "Tira" (ad_account_id = 868364731529534, mata uang IDR, business "Elharamain Wisata"). Gunakan MCP tool Meta-Ads yang terhubung. Isi parameter client_conversation_id dengan id 20-karakter acak yang SAMA untuk semua pemanggilan tool Meta Ads dalam sesi ini, dan client_model dengan model id kamu.
+
+PERUBAHAN 2026-09-24 (permintaan user): RULE#1 sekarang mem-pause di level AD SET (disimpan di state.adsets). Entri lama level ad (state.ads) tetap diproses di siklus ini sampai habis.
+
+STATE PERSISTEN (WAJIB):
+Repo git https://github.com/khaeruddienfatih/metaads-automation-state sudah ter-clone di workspace. File state: state.json di root repo. Kalau belum ada/kosong, buat dengan struktur default:
+{"ads": {}, "adsets": {}, "campaigns": {}, "last_run": null}
+Kalau key "adsets" belum ada, tambahkan "adsets": {}.
+Entri "ads" dan "adsets" (key=id): {"paused_by_automation": bool, "paused_at": "YYYY-MM-DD HH:MM WIB"|null, "paused_spend_snapshot": number|null, "reactivated_at": "YYYY-MM-DD HH:MM WIB"|null, "skip_next_check": bool, "permanently_dead": bool} (adsets juga menyimpan "name" dan "campaign_id").
+
+PARSING CURRENCY: field amount_spent berformat string Indonesia contoh "Rp220.000 IDR" atau "Rp0 IDR", atau object {"value":"220000","unit":"IDR"}. Untuk string: buang "Rp","IDR",spasi, lalu buang semua titik "." (pemisah ribuan) -> integer rupiah. Untuk object: pakai value.
+
+PARSING "hasil" (percakapan pesan dimulai): gunakan field `results` (indicator actions:onsite_conversion.messaging_conversation_started_7d, terverifikasi untuk akun ini). Kalau results.value=="Not available" atau field tidak ada -> hasil=0. Kalau ada results.values[] -> jumlahkan value numeriknya.
+
+PAGAR PENGAMAN (WAJIB):
+- Hanya operasikan entity dengan ad_account_id PERSIS 868364731529534.
+- JANGAN PERNAH delete/archive apapun.
+- HANYA aktifkan entity yang tercatat di state dengan paused_by_automation==true (jangan aktifkan ad set/ad yang di-pause manual oleh user).
+- Kalau 1 pemanggilan tool error untuk 1 entity, catat errornya, lanjut ke entity berikutnya.
+
+DI AKHIR SIKLUS (WAJIB):
+1. Susun teks RINGKASAN berbahasa Indonesia: ad set (dan ad lama) yang diaktifkan lagi vs ditandai mati permanen (dengan nama + angka spend/hasil/hari alasan), atau "Tidak ada aksi." kalau tak ada, dan error/warning kalau ada.
+2. Update "last_run" di state.json dengan timestamp WIB sekarang. Commit pesan singkat (nama rule + waktu WIB), push ke branch default repo. Kalau push gagal non-fast-forward, git pull --rebase lalu push ulang sekali; kalau tetap gagal, tambahkan ke RINGKASAN bahwa STATE TIDAK TERSIMPAN.
+3. Kirim RINGKASAN itu ke Telegram: `curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" --data-urlencode chat_id="$TELEGRAM_CHAT_ID" --data-urlencode text="<RINGKASAN>"`. Environment variable TELEGRAM_BOT_TOKEN dan TELEGRAM_CHAT_ID sudah tersedia. Kirim SETIAP siklus jalan, termasuk kalau tidak ada aksi. Kalau respons tidak berisi "ok":true, ulangi maksimal 2 kali lagi dengan jeda 3 detik. Kalau tetap gagal, catat error itu tapi jangan sampai menggagalkan langkah lain.
+4. Tulis RINGKASAN yang sama sebagai output akhir kamu.
+
+=== TUGAS SIKLUS INI: RULE #3 (reaktivasi) DENGAN pengecualian RULE #4 (mati permanen). Jalan sekali sehari jam 04:00 WIB. ===
+1. Baca/inisialisasi state.json.
+2. AD SET — untuk tiap adset_id di state.adsets dengan paused_by_automation==true DAN reactivated_at==null DAN permanently_dead!=true:
+   a. Panggil ads_get_ad_entities ad_account_id=868364731529534 level=adset object_ids=[adset_id] date_preset="maximum" fields=["id","name","created_time","amount_spent","results"].
+   b. Hitung days_since = (waktu WIB sekarang - created_time ad set ini, dalam hari, dibulatkan ke bawah).
+   c. Parse lifetime_spend & lifetime_hasil ("Not available"=0).
+   d. RULE #4 -- Kalau days_since>=3 DAN lifetime_spend>=50000 DAN lifetime_hasil==0: JANGAN aktifkan. Set state.adsets[adset_id].permanently_dead=true. Biarkan tetap PAUSED.
+   e. Selain itu: panggil ads_activate_entity entity_type="ad_set" entity_id=adset_id ad_account_id=868364731529534. Update state.adsets[adset_id]: paused_by_automation=false, reactivated_at=<WIB now>, skip_next_check=true.
+3. AD (entri lama, legacy) — untuk tiap ad_id di state.ads dengan paused_by_automation==true DAN reactivated_at==null DAN permanently_dead!=true:
+   a. Panggil ads_get_ad_entities ad_account_id=868364731529534 level=ad object_ids=[ad_id] date_preset="maximum" fields=["id","created_time","amount_spent","results"].
+   b-d. Sama seperti langkah 2b-2d tapi untuk ad (RULE#4 -> permanently_dead=true, tetap PAUSED).
+   e. Selain itu: panggil ads_activate_entity entity_type="ad" entity_id=ad_id ad_account_id=868364731529534. Update state.ads[ad_id]: paused_by_automation=false, reactivated_at=<WIB now>, skip_next_check=true.
+4. Jalankan langkah DI AKHIR SIKLUS di atas (ringkasan + simpan state + kirim Telegram).
