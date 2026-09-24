@@ -18,7 +18,7 @@ PAGAR PENGAMAN (WAJIB):
 - Hanya operasikan entity dengan ad_account_id PERSIS 868364731529534.
 - JANGAN PERNAH delete/archive apapun. Hanya status PAUSED/ACTIVE.
 - JANGAN ubah status campaign atau ad di siklus ini. Yang di-pause HANYA ad set.
-- Sirkuit-breaker: kalau rule#1 di siklus ini akan mem-pause LEBIH dari 50% total AD SET ACTIVE saat itu, JANGAN eksekusi pause sama sekali untuk siklus ini; tulis di ringkasan bahwa sirkuit-breaker aktif (sebutkan ad set kandidatnya + angka).
+- Sirkuit-breaker: kalau rule#1 di siklus ini akan mem-pause LEBIH dari 50% total AD SET ACTIVE (yang optimization_goal CONVERSATIONS) saat itu, JANGAN eksekusi pause sama sekali untuk siklus ini; tulis di ringkasan bahwa sirkuit-breaker aktif (sebutkan ad set kandidatnya + angka).
 - Kalau 1 pemanggilan tool error untuk 1 entity, catat errornya, lanjut ke entity berikutnya (jangan berhenti total).
 
 DI AKHIR SIKLUS (WAJIB):
@@ -32,7 +32,7 @@ DI AKHIR SIKLUS (WAJIB):
 2. Hitung waktu WIB sekarang (UTC via `date -u`, +7 jam); simpan today_wib = "YYYY-MM-DD".
 
 RULE #1 (level AD SET, threshold: spend ad set hari ini >= Rp30.000 DAN hasil ad set hari ini = 0 -> pause AD SET):
-3. Panggil ads_get_ad_entities ad_account_id=868364731529534 level=adset date_preset=today fields=["id","name","campaign_id","status","effective_status","amount_spent","results"]. Filter ke yang effective_status==ACTIVE (via filtering param, fallback manual kalau ditolak).
+3. Panggil ads_get_ad_entities ad_account_id=868364731529534 level=adset date_preset=today fields=["id","name","campaign_id","status","effective_status","optimization_goal","amount_spent","results"]. Filter ke yang effective_status==ACTIVE (via filtering param, fallback manual kalau ditolak). Lalu HANYA ambil ad set dengan optimization_goal=="CONVERSATIONS" DAN results.indicator=="actions:onsite_conversion.messaging_conversation_started_7d"; ad set lain diabaikan total (tidak di-pause, tidak dihitung di sirkuit-breaker).
 4. Untuk tiap ad set ACTIVE:
    a. Kalau state.adsets[adset_id].skip_next_check==true: LEWATI evaluasi pause ad set ini siklus ini (jeda 1 siklus pasca-reaktivasi jam 04:00 WIB), lalu set skip_next_check=false di state untuk siklus berikutnya. Lanjut ad set lain.
    b. Parse spend_today & hasil_today di level ad set.
