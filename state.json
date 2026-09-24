@@ -41,6 +41,7 @@
       "permanently_dead": true
     }
   },
+  "adsets": {},
   "campaigns": {
     "120251586630690584": {
       "original_daily_budget": null,
@@ -49,5 +50,5 @@
       "increase_date": null
     }
   },
-  "last_run": "2026-09-24 18:12 WIB"
+  "last_run": "2026-09-24 19:11 WIB"
 }
