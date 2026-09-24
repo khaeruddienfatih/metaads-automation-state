@@ -1,8 +1,8 @@
-Kamu menjalankan SATU SIKLUS otomasi Meta Ads RULE#3 (reaktivasi AD SET — dan entri lama level ad — yang di-pause otomatis oleh RULE#1) DENGAN pengecualian RULE#4 (mati permanen), untuk 8 akun iklan grup "Elharamain" (SELAIN Tira, SELAIN semua akun "Haji"). Jalan sekali sehari jam 04:05 WIB. Gunakan MCP tool Meta-Ads yang terhubung. Isi client_conversation_id dengan id 20-karakter acak SAMA untuk semua panggilan di siklus ini (semua 8 akun), client_model dengan model id kamu.
+Kamu menjalankan SATU SIKLUS otomasi Meta Ads RULE#3 (reaktivasi AD SET — dan entri lama level ad — yang di-pause otomatis oleh RULE#1) DENGAN pengecualian RULE#4 (mati permanen), untuk 13 akun iklan grup "Elharamain" (SELAIN Tira). Jalan sekali sehari jam 04:05 WIB. Gunakan MCP tool Meta-Ads yang terhubung. Isi client_conversation_id dengan id 20-karakter acak SAMA untuk semua panggilan di siklus ini (semua 13 akun), client_model dengan model id kamu.
 
 PERUBAHAN 2026-09-24 (permintaan user): RULE#1 sekarang mem-pause di level AD SET (disimpan di state_batch1[akun].adsets). Entri lama level ad (state_batch1[akun].ads) tetap diproses di siklus ini sampai habis.
 
-DAFTAR 8 AKUN (proses satu per satu, independen):
+DAFTAR 13 AKUN (proses satu per satu, independen):
 1. 1050343302646341 (Fikri)
 2. 814396810761205 (AIni)
 3. 1060984719243481 (Irfan)
@@ -11,6 +11,12 @@ DAFTAR 8 AKUN (proses satu per satu, independen):
 6. 1076195694707828 (Diana)
 7. 873443374652541 (Alif)
 8. 1019832712800468 (Nida)
+9. 1032468828178224 (Elharamain Haji 2)
+10. 794403715776985 (Elharamain Haji 3)
+11. 1526562231314028 (Elharamain Haji 4)
+12. 947788760498911 (Elharamain Haji)
+13. 1676215979752437 (Elharamain Fifi)
+(Akun Fifi 1597121987849466 TIDAK diproses: Ads MCP belum aktif untuk akun itu.)
 
 STATE PERSISTEN (WAJIB): Repo git https://github.com/khaeruddienfatih/metaads-automation-state sudah ter-clone di workspace. File state: state_batch1.json di ROOT repo (BUKAN state.json milik Tira - jangan sentuh file itu). Kalau belum ada/kosong, buat {}. Struktur per akun: "<ad_account_id>": {"ads": {}, "adsets": {}, "campaigns": {}, "last_run": null}. Kalau key akun belum ada, buat default itu dulu. Kalau key "adsets" belum ada, tambahkan "adsets": {}.
 
@@ -34,7 +40,7 @@ a. Panggil ads_get_ad_entities ad_account_id=<akun ini> level=ad object_ids=[ad_
 b-d. Sama seperti A.b-A.d tapi untuk ad (RULE#4: days_since>=3 DAN lifetime_spend>=50000 DAN lifetime_hasil==0 -> permanently_dead=true, tetap PAUSED).
 e. Selain itu: panggil ads_activate_entity entity_type="ad" entity_id=ad_id ad_account_id=<akun ini>. Update state_batch1[akun].ads[ad_id]: paused_by_automation=false, reactivated_at=<WIB now>, skip_next_check=true.
 
-DI AKHIR SIKLUS (setelah SEMUA 8 akun diproses, WAJIB):
+DI AKHIR SIKLUS (setelah SEMUA 13 akun diproses, WAJIB):
 1. Susun SATU ringkasan gabungan berbahasa Indonesia: per akun, ad set (dan ad lama) yang diaktifkan lagi vs ditandai mati permanen (dengan nama + angka spend/hasil/hari alasan), atau "Tidak ada aksi" kalau tak ada, error/warning kalau ada.
 2. Update "last_run" tiap sub-object akun yang diproses dengan timestamp WIB sekarang. Commit SATU KALI, pesan singkat "Batch1 Reaktivasi - <waktu WIB>", push ke branch default repo. Kalau push gagal non-fast-forward, git pull --rebase lalu push ulang sekali; kalau tetap gagal, tambahkan ke ringkasan bahwa STATE TIDAK TERSIMPAN.
 3. Kirim ringkasan ke Telegram: `curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" --data-urlencode chat_id="$TELEGRAM_CHAT_ID" --data-urlencode text="<RINGKASAN>"`. Environment variable TELEGRAM_BOT_TOKEN dan TELEGRAM_CHAT_ID sudah tersedia. Kirim SETIAP siklus jalan, termasuk kalau tidak ada aksi. Kalau respons tidak berisi "ok":true, ulangi maksimal 2 kali lagi dengan jeda 3 detik. Kalau tetap gagal, catat error itu tapi jangan sampai menggagalkan langkah lain.
