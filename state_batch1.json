@@ -33,7 +33,19 @@
         "increase_date": "2026-09-22"
       }
     },
-    "last_run": "2026-09-24 18:18 WIB"
+    "last_run": "2026-09-24 20:04 WIB",
+    "adsets": {
+      "120253870698020422": {
+        "name": "12 Januari",
+        "campaign_id": "120253795504930422",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 43791,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      }
+    }
   },
   "814396810761205": {
     "ads": {
@@ -60,7 +72,8 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-24 18:18 WIB"
+    "last_run": "2026-09-24 20:04 WIB",
+    "adsets": {}
   },
   "1060984719243481": {
     "ads": {},
@@ -78,7 +91,29 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-24 18:18 WIB"
+    "last_run": "2026-09-24 20:04 WIB",
+    "adsets": {
+      "120252989526960414": {
+        "name": "Umroh",
+        "campaign_id": "120252989526920414",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 43701,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      },
+      "120252989463040414": {
+        "name": "Umroh",
+        "campaign_id": "120252989463000414",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 39439,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      }
+    }
   },
   "521083143750270": {
     "ads": {
@@ -161,7 +196,8 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-24 18:18 WIB"
+    "last_run": "2026-09-24 20:04 WIB",
+    "adsets": {}
   },
   "482252744648260": {
     "ads": {
@@ -230,7 +266,29 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-24 18:18 WIB"
+    "last_run": "2026-09-24 20:04 WIB",
+    "adsets": {
+      "120254451898880427": {
+        "name": "Saudia 9 hari",
+        "campaign_id": "120254451898910427",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 64887,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      },
+      "120254451898870427": {
+        "name": "Saudia 12 Hari",
+        "campaign_id": "120254451898910427",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 77513,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      }
+    }
   },
   "1076195694707828": {
     "ads": {
@@ -283,7 +341,8 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-24 18:18 WIB"
+    "last_run": "2026-09-24 20:04 WIB",
+    "adsets": {}
   },
   "873443374652541": {
     "ads": {
@@ -368,7 +427,29 @@
         "increase_date": null
       }
     },
-    "last_run": "2026-09-24 18:18 WIB"
+    "last_run": "2026-09-24 20:04 WIB",
+    "adsets": {
+      "120248080346840678": {
+        "name": "Saudia",
+        "campaign_id": "120248080346920678",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 47696,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      },
+      "120248080346900678": {
+        "name": "Saudia",
+        "campaign_id": "120248080346920678",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 75672,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      }
+    }
   },
   "1019832712800468": {
     "ads": {
@@ -382,6 +463,109 @@
       }
     },
     "campaigns": {},
-    "last_run": "2026-09-24 18:18 WIB"
+    "last_run": "2026-09-24 20:04 WIB",
+    "adsets": {}
+  },
+  "1032468828178224": {
+    "ads": {},
+    "adsets": {},
+    "campaigns": {},
+    "last_run": "2026-09-24 20:04 WIB"
+  },
+  "794403715776985": {
+    "ads": {},
+    "adsets": {
+      "120252668592010704": {
+        "name": "Haji 2",
+        "campaign_id": "120252668591930704",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 34413,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      },
+      "120252620223190704": {
+        "name": "Haji",
+        "campaign_id": "120252620223110704",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 30865,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      },
+      "120252557032300704": {
+        "name": "Haji 2",
+        "campaign_id": "120252557032240704",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 34772,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      }
+    },
+    "campaigns": {},
+    "last_run": "2026-09-24 20:04 WIB"
+  },
+  "1526562231314028": {
+    "ads": {},
+    "adsets": {
+      "120256622022630768": {
+        "name": "Vidio",
+        "campaign_id": "120256622022200768",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 49008,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      },
+      "120256622022540768": {
+        "name": "Gambar",
+        "campaign_id": "120256622022240768",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 30564,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      },
+      "120256621962420768": {
+        "name": "Vidio",
+        "campaign_id": "120256621962310768",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 36771,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      },
+      "120256571429460768": {
+        "name": "Campuran",
+        "campaign_id": "120256571428120768",
+        "paused_by_automation": true,
+        "paused_at": "2026-09-24 20:04 WIB",
+        "paused_spend_snapshot": 112753,
+        "reactivated_at": null,
+        "skip_next_check": false,
+        "permanently_dead": false
+      }
+    },
+    "campaigns": {},
+    "last_run": "2026-09-24 20:04 WIB"
+  },
+  "947788760498911": {
+    "ads": {},
+    "adsets": {},
+    "campaigns": {},
+    "last_run": "2026-09-24 20:04 WIB"
+  },
+  "1676215979752437": {
+    "ads": {},
+    "adsets": {},
+    "campaigns": {},
+    "last_run": "2026-09-24 20:04 WIB"
   }
 }
