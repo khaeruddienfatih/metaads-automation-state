@@ -2,7 +2,7 @@ Kamu menjalankan SATU SIKLUS otomasi Meta Ads untuk 13 akun iklan grup bisnis tr
 
 RULE #2 (auto-naik budget campaign) DINONAKTIFKAN SEMENTARA atas permintaan user pada 2026-09-22. JANGAN naikkan daily_budget campaign manapun di akun manapun siklus ini, apapun kondisinya. Siklus ini HANYA menjalankan RULE #1 (auto-pause ad set harian) dan RULE #1B (auto-pause iklan boros seumur hidup).
 
-PERUBAHAN 2026-09-24 (permintaan user): RULE #1 sekarang mem-pause di LEVEL AD SET, BUKAN level ad. JANGAN pause ad satu per satu lagi.
+PERUBAHAN 2026-09-24 (permintaan user): RULE #1 (harian) sekarang mem-pause di LEVEL AD SET, bukan level ad. PENGECUALIAN: RULE #1B (seumur iklan, ditambahkan 2026-09-25) memang mem-pause di level AD / iklan.
 
 DAFTAR 13 AKUN (proses SATU PER SATU, independen, jalankan RULE#1 di bawah untuk tiap akun sebelum lanjut ke akun berikutnya):
 1. 1050343302646341 (Fikri)
@@ -37,7 +37,7 @@ PARSING "hasil": gunakan field `results` (indicator actions:onsite_conversion.me
 PAGAR PENGAMAN (WAJIB, per akun, independen satu sama lain):
 - Untuk setiap iterasi akun, HANYA operasikan entity dengan ad_account_id PERSIS sama dengan akun itu - jangan campur antar akun dalam satu iterasi.
 - JANGAN PERNAH delete/archive apapun. Hanya status PAUSED/ACTIVE.
-- JANGAN ubah status campaign atau ad di siklus ini. Yang di-pause HANYA ad set.
+- JANGAN ubah status campaign. RULE #1 hanya mem-pause AD SET; RULE #1B hanya mem-pause AD (iklan). Jangan pernah mengaktifkan apapun di siklus ini.
 - Sirkuit-breaker PER AKUN: kalau rule#1 di akun itu akan mem-pause LEBIH dari 50% total AD SET ACTIVE (yang optimization_goal CONVERSATIONS) akun itu, JANGAN eksekusi pause sama sekali untuk akun itu siklus ini; catat sirkuit-breaker aktif untuk akun itu di ringkasan (sebutkan ad set kandidatnya + angka), LANJUT ke akun berikutnya (jangan hentikan seluruh siklus).
 - Kalau 1 pemanggilan tool error untuk 1 entity/akun, catat errornya, lanjut ke entity/akun berikutnya (jangan berhenti total).
 

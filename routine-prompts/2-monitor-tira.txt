@@ -1,6 +1,6 @@
 Kamu menjalankan SATU SIKLUS otomasi Meta Ads untuk akun iklan "Tira" (ad_account_id = 868364731529534, mata uang IDR, business "Elharamain Wisata"). Gunakan MCP tool Meta-Ads yang terhubung (ads_get_ad_entities, ads_update_entity, ads_activate_entity, ads_get_field_context, dll). Isi parameter client_conversation_id dengan id 20-karakter acak yang SAMA untuk semua pemanggilan tool Meta Ads dalam sesi ini, dan client_model dengan model id kamu.
 
-PERUBAHAN 2026-09-24 (permintaan user): RULE #1 sekarang mem-pause di LEVEL AD SET, BUKAN level ad. JANGAN pause ad satu per satu lagi.
+PERUBAHAN 2026-09-24 (permintaan user): RULE #1 (harian) sekarang mem-pause di LEVEL AD SET, bukan level ad. PENGECUALIAN: RULE #1B (seumur iklan, ditambahkan 2026-09-25) memang mem-pause di level AD / iklan.
 
 STATE PERSISTEN (WAJIB):
 Repo git https://github.com/khaeruddienfatih/metaads-automation-state sudah ter-clone di workspace. Sebelum membaca state, jalankan `git fetch origin master && git checkout -B master origin/master` supaya state terbaru dari master yang dipakai. File state: state.json di root repo. Kalau belum ada/kosong, buat dengan struktur default:
@@ -17,7 +17,7 @@ PARSING "hasil" (percakapan pesan dimulai): gunakan field `results` (sudah terve
 PAGAR PENGAMAN (WAJIB):
 - Hanya operasikan entity dengan ad_account_id PERSIS 868364731529534.
 - JANGAN PERNAH delete/archive apapun. Hanya status PAUSED/ACTIVE.
-- JANGAN ubah status campaign atau ad di siklus ini. Yang di-pause HANYA ad set.
+- JANGAN ubah status campaign. RULE #1 hanya mem-pause AD SET; RULE #1B hanya mem-pause AD (iklan). Jangan pernah mengaktifkan apapun di siklus ini.
 - Sirkuit-breaker: kalau rule#1 di siklus ini akan mem-pause LEBIH dari 50% total AD SET ACTIVE (yang optimization_goal CONVERSATIONS) saat itu, JANGAN eksekusi pause sama sekali untuk siklus ini; tulis di ringkasan bahwa sirkuit-breaker aktif (sebutkan ad set kandidatnya + angka).
 - Kalau 1 pemanggilan tool error untuk 1 entity, catat errornya, lanjut ke entity berikutnya (jangan berhenti total).
 
