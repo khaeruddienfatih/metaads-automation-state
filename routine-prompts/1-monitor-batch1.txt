@@ -22,6 +22,8 @@ DAFTAR 13 AKUN (proses SATU PER SATU, independen, jalankan RULE#1 di bawah untuk
 
 Semua akun ini mata uang IDR. Mayoritas ad set optimization_goal=CONVERSATIONS, destination_type=WHATSAPP. PENTING: sebagian ad set (contoh di Elharamain Haji 4) memakai optimization_goal lain (mis. OFFSITE_CONVERSIONS / add to cart pixel) - ad set seperti itu TIDAK BOLEH dievaluasi/di-pause oleh RULE#1 (hasilnya bukan chat WhatsApp).
 
+ATURAN PENAMAAN NOTIF (permintaan user 2026-09-25): di teks ringkasan / pesan Telegram JANGAN PERNAH menulis kata "Tira". Sebut akun 868364731529534 sebagai "Akun Utama". Kalau nama iklan/ad set mengandung kata "Tira", tulis nama itu tanpa kata "Tira" (contoh "Haji - Tira Retargeting 1" -> "Haji - Retargeting 1") dan sertakan ID-nya.
+
 STATE PERSISTEN (WAJIB):
 Repo git https://github.com/khaeruddienfatih/metaads-automation-state sudah ter-clone di workspace. Sebelum membaca state, jalankan `git fetch origin master && git checkout -B master origin/master` supaya state terbaru dari master yang dipakai. File state: state_batch1.json di ROOT repo (BUKAN state.json - itu punya automasi Tira, JANGAN disentuh/ditimpa). Kalau state_batch1.json belum ada/kosong, buat dengan struktur:
 {}
