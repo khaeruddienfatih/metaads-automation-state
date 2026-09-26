@@ -1,0 +1,39 @@
+Kamu menjalankan SATU SIKLUS otomasi Meta Ads "AUTO 40RB" untuk 14 akun iklan grup Elharamain. Jalan sekali sehari jam 00:00 WIB. Aturan tunggal (permintaan user 2026-09-26): "jika iklan menghabiskan 40rb tidak ada chat matikan, di hitung dari aktipnya iklan". Tidak ada aturan lain: JANGAN mengubah budget, JANGAN menyentuh campaign / ad set, JANGAN menyalakan apapun.
+
+Gunakan MCP tool Meta-Ads yang terhubung. Isi client_conversation_id dengan id 20-karakter acak yang SAMA untuk semua pemanggilan di siklus ini, dan client_model dengan model id kamu.
+
+DAFTAR 14 AKUN (proses satu per satu, independen):
+1. 868364731529534 (Akun Utama)
+2. 1050343302646341 (Fikri)
+3. 814396810761205 (AIni)
+4. 1060984719243481 (Irfan)
+5. 521083143750270 (Elharamain)
+6. 482252744648260 (Hanif)
+7. 1076195694707828 (Diana)
+8. 873443374652541 (Alif)
+9. 1019832712800468 (Nida)
+10. 1032468828178224 (Elharamain Haji 2)
+11. 794403715776985 (Elharamain Haji 3)
+12. 1526562231314028 (Elharamain Haji 4)
+13. 947788760498911 (Elharamain Haji)
+14. 1676215979752437 (Elharamain Fifi)
+(Akun Fifi 1597121987849466 TIDAK diproses: Ads MCP belum aktif untuk akun itu.)
+
+ATURAN (level AD / iklan, dihitung TOTAL sejak iklan aktif = seumur iklan):
+Untuk tiap akun, panggil ads_get_ad_entities ad_account_id=<akun> level=ad date_preset="maximum" fields=["id","name","adset_id","effective_status","amount_spent","results"] filtering=[{"field":"ad.effective_status","operator":"IN","value":["ACTIVE"]},{"field":"ad.amount_spent","operator":"GREATER_THAN_OR_EQUAL","value":["40000"]}] (kalau filter ditolak, filter manual).
+- HANYA iklan dengan results.indicator=="actions:onsite_conversion.messaging_conversation_started_7d" (iklan tujuan chat WhatsApp). Iklan tujuan lain (mis. add to cart pixel) DIABAIKAN total.
+- Parse spend: amount_spent bisa object {"value":"45000","unit":"IDR"} (pakai value) atau string "Rp45.000 IDR" (buang Rp, IDR, spasi, titik). Parse chat: kalau results.value=="Not available" atau tidak ada -> 0; kalau ada results.values[] -> jumlahkan.
+- Kandidat = total_spend >= 40000 DAN total_chat == 0.
+- Pengaman: kalau kandidat di satu akun LEBIH dari 50% dari seluruh iklan ACTIVE tujuan chat di akun itu, JANGAN matikan apapun di akun itu siklus ini; tulis "PENGAMAN AKTIF" + daftar kandidat di ringkasan (indikasi data salah baca).
+- Kalau lolos: ads_update_entity entity_type="ad" entity_id=<ad_id> ad_account_id=<akun> fields={"status":"PAUSED"}. Hanya status iklan itu yang diubah.
+- Kalau 1 panggilan error, catat, lanjut ke iklan/akun berikutnya.
+
+CATATAN (state): Repo git https://github.com/khaeruddienfatih/metaads-automation-state sudah ter-clone di workspace (kalau belum: git clone). Jalankan `git fetch origin master && git checkout -B master origin/master`. File: state_40k.json di root repo (buat {} kalau belum ada). Untuk tiap iklan yang dimatikan: state["<akun>"]["<ad_id>"] = {"name": nama, "adset_id": ..., "total_spend": angka, "paused_at": "YYYY-MM-DD HH:MM WIB"}. Iklan ini mati permanen (tidak ada routine yang menyalakannya lagi). JANGAN sentuh state.json / state_batch1.json.
+Kalau ada perubahan: commit sekali "Auto40k - <waktu WIB>", push dengan `git push origin HEAD:master` (JANGAN ke branch claude/...). Kalau ditolak: `git pull --rebase origin master` lalu push sekali lagi; kalau tetap gagal tulis "STATE TIDAK TERSIMPAN" di ringkasan. Kalau tidak ada iklan yang dimatikan, TIDAK perlu commit.
+
+NOTIF TELEGRAM (setiap siklus, termasuk kalau tidak ada aksi):
+Ringkasan Bahasa Indonesia, singkat: waktu WIB; daftar "Dimatikan (total >= Rp40rb tanpa chat)": nama akun - nama iklan - total spend; akun tanpa aksi digabung satu baris; error/pengaman kalau ada.
+JANGAN PERNAH menulis kata "Tira" di notif: akun 868364731529534 disebut "Akun Utama"; kalau nama iklan mengandung "Tira", tulis tanpa kata itu + sertakan ID iklan.
+Kirim: `curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" --data-urlencode chat_id="$TELEGRAM_CHAT_ID" --data-urlencode text="<BAGIAN>"`. Kalau ringkasan > 3500 karakter, pecah jadi beberapa pesan <=3500 karakter dengan penanda (1/2), (2/2). Kalau respons tidak berisi "ok":true, ulangi maksimal 2x dengan jeda 3 detik. Gagal kirim tidak boleh menggagalkan langkah lain.
+
+Tulis ringkasan yang sama sebagai output akhir kamu.
