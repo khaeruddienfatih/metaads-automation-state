@@ -26,7 +26,7 @@ PARSING CURRENCY: field amount_spent berformat string Indonesia contoh "Rp220.00
 
 PARSING "hasil": gunakan field `results` (indicator actions:onsite_conversion.messaging_conversation_started_7d). Kalau results.value=="Not available" atau field tidak ada -> hasil=0. Kalau ada results.values[] -> jumlahkan value numeriknya.
 
-PAGAR PENGAMAN (WAJIB, per akun): Hanya operasikan entity dengan ad_account_id PERSIS sama dengan akun yang sedang diproses. JANGAN PERNAH delete/archive apapun. HANYA aktifkan entity yang tercatat di state dengan paused_by_automation==true (jangan aktifkan ad set/ad yang di-pause manual oleh user). Kalau 1 pemanggilan tool error, catat errornya, lanjut ke entity/akun berikutnya (jangan berhenti total).
+PAGAR PENGAMAN (WAJIB, per akun): Hanya operasikan entity dengan ad_account_id PERSIS sama dengan akun yang sedang diproses. JANGAN PERNAH delete/archive apapun. Perubahan budget HANYA lewat RULE #6 (naik 10%), tidak boleh menurunkan budget. HANYA aktifkan entity yang tercatat di state dengan paused_by_automation==true (jangan aktifkan ad set/ad yang di-pause manual oleh user). Kalau 1 pemanggilan tool error, catat errornya, lanjut ke entity/akun berikutnya (jangan berhenti total).
 
 Untuk SETIAP akun di atas:
 
@@ -41,6 +41,16 @@ B. AD (entri lama, legacy) — untuk tiap ad_id di state_batch1[akun].ads dengan
 a. Panggil ads_get_ad_entities ad_account_id=<akun ini> level=ad object_ids=[ad_id] date_preset="maximum" fields=["id","created_time","amount_spent","results"].
 b-d. Sama seperti A.b-A.d tapi untuk ad (RULE#4: days_since>=3 DAN lifetime_spend>=50000 DAN lifetime_hasil==0 -> permanently_dead=true, tetap PAUSED).
 e. Selain itu: panggil ads_activate_entity entity_type="ad" entity_id=ad_id ad_account_id=<akun ini>. Update state_batch1[akun].ads[ad_id]: paused_by_automation=false, reactivated_at=<WIB now>, skip_next_check=true.
+
+RULE #6 (NAIK BUDGET 10%, ditambahkan 2026-09-26 atas permintaan user: "Naikan anggaran 10% jika hari kmrn mendapat cpr di bawah 25ribu naikan di jam 4 pagi"):
+Jalankan SETELAH reaktivasi selesai, untuk SETIAP akun di daftar (per akun, independen).
+a. Panggil ads_get_ad_entities ad_account_id=<akun ini> level=campaign date_preset="yesterday" fields=["id","name","effective_status","daily_budget","amount_spent","results","cost_per_result"].
+b. HANYA proses campaign yang: effective_status ACTIVE saat ini, punya daily_budget di level campaign (CBO), DAN results.indicator=="actions:onsite_conversion.messaging_conversation_started_7d" (campaign add to cart / tujuan lain DIABAIKAN).
+c. Hitung hasil_kemarin (jumlah results.values[]; "Not available" = 0) dan spend_kemarin. Syarat naik: hasil_kemarin >= 1 DAN cpr_kemarin = spend_kemarin / hasil_kemarin < 25000.
+d. Jangan naikkan 2x di hari yang sama: kalau state_batch1[akun].campaigns[campaign_id].last_auto_increase.date == tanggal WIB hari ini, lewati.
+e. Kalau lolos: new_budget = bulatkan ke atas ke kelipatan 1000 dari (daily_budget * 1.10). daily_budget IDR dikirim sebagai integer rupiah apa adanya (JANGAN dikali 100). Panggil ads_update_entity entity_type="campaign" entity_id=campaign_id ad_account_id=<akun ini> fields={"daily_budget": new_budget}. Kalau response status_forced_to_paused==true atau campaign jadi PAUSED, SEGERA panggil ads_activate_entity entity_type="campaign" entity_id=campaign_id ad_account_id=<akun ini> supaya kembali ACTIVE (ini satu-satunya aktivasi campaign yang diizinkan).
+f. Catat di state_batch1[akun].campaigns[campaign_id].last_auto_increase = {"date": "YYYY-MM-DD", "from": daily_budget_lama, "to": new_budget, "cpr_kemarin": angka, "hasil_kemarin": angka}. JANGAN isi original_daily_budget (supaya routine Reset Budget jam 00:00 TIDAK mengembalikan kenaikan ini — kenaikan RULE #6 bersifat permanen).
+g. Di ringkasan tulis bagian "Budget naik 10%": nama akun + nama campaign + budget lama -> baru + CPR kemarin + hasil kemarin. Kalau tidak ada, tulis "Budget naik: tidak ada".
 
 DI AKHIR SIKLUS (setelah SEMUA 13 akun diproses, WAJIB):
 1. Susun SATU ringkasan gabungan berbahasa Indonesia: per akun, ad set (dan ad lama) yang diaktifkan lagi vs ditandai mati permanen (dengan nama + angka spend/hasil/hari alasan), atau "Tidak ada aksi" kalau tak ada, error/warning kalau ada.
