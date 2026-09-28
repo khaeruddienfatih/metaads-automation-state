@@ -13,6 +13,12 @@
       "adset_id": "120250253985820739",
       "total_spend": 61389,
       "paused_at": "2026-09-27 00:10 WIB"
+    },
+    "120250512619830739": {
+      "name": "Haji - Fikri Interest 4",
+      "adset_id": "120250201672240739",
+      "total_spend": 42825,
+      "paused_at": "2026-09-29 00:08 WIB"
     }
   },
   "1050343302646341": {
@@ -49,6 +55,12 @@
       "adset_id": "120252201112060365",
       "total_spend": 41786,
       "paused_at": "2026-09-28 00:06 WIB"
+    },
+    "120252201075080365": {
+      "name": "Riyadh Air | 10_Hari_Riyad_Air_1 | judul1",
+      "adset_id": "120252201075100365",
+      "total_spend": 55260,
+      "paused_at": "2026-09-29 00:08 WIB"
     }
   },
   "482252744648260": {
@@ -65,6 +77,14 @@
       "adset_id": "120248150967030678",
       "total_spend": 40865,
       "paused_at": "2026-09-28 00:06 WIB"
+    }
+  },
+  "1076195694707828": {
+    "120251798850630294": {
+      "name": "Liburan Akhir Tahun | Desain 3 slide 1 | judul1",
+      "adset_id": "120251798450560294",
+      "total_spend": 60818,
+      "paused_at": "2026-09-29 00:08 WIB"
     }
   }
 }
