@@ -39,6 +39,18 @@
       "adset_id": "120253870697970422",
       "total_spend": 57261,
       "paused_at": "2026-09-28 00:06 WIB"
+    },
+    "120253870903210422": {
+      "name": "Fikri - 9 Januari - 5",
+      "adset_id": "120253870697970422",
+      "total_spend": 86877,
+      "paused_at": "2026-09-30 00:05 WIB"
+    },
+    "120253870868730422": {
+      "name": "Fikri - Desember - 4",
+      "adset_id": "120253870697980422",
+      "total_spend": 83111,
+      "paused_at": "2026-09-30 00:05 WIB"
     }
   },
   "814396810761205": {
@@ -61,6 +73,12 @@
       "adset_id": "120252201075100365",
       "total_spend": 55260,
       "paused_at": "2026-09-29 00:08 WIB"
+    },
+    "120252201074970365": {
+      "name": "Liburan Akhir Tahun | Desain 2 slide 4 | judul1",
+      "adset_id": "120252201075060365",
+      "total_spend": 40778,
+      "paused_at": "2026-09-30 00:05 WIB"
     }
   },
   "482252744648260": {
@@ -69,6 +87,18 @@
       "adset_id": "120254562993590427",
       "total_spend": 57719,
       "paused_at": "2026-09-28 00:06 WIB"
+    },
+    "120254550221870427": {
+      "name": "November | 10_Hari_Riyad_Air_3.jpg | judul1",
+      "adset_id": "120254550222040427",
+      "total_spend": 45382,
+      "paused_at": "2026-09-30 00:05 WIB"
+    },
+    "120254550221770427": {
+      "name": "9 Hari Januari | januari_3.jpg | judul1",
+      "adset_id": "120254550222050427",
+      "total_spend": 40069,
+      "paused_at": "2026-09-30 00:05 WIB"
     }
   },
   "873443374652541": {
@@ -83,8 +113,24 @@
     "120251798850630294": {
       "name": "Liburan Akhir Tahun | Desain 3 slide 1 | judul1",
       "adset_id": "120251798450560294",
-      "total_spend": 60818,
-      "paused_at": "2026-09-29 00:08 WIB"
+      "total_spend": 68580,
+      "paused_at": "2026-09-30 00:05 WIB"
+    }
+  },
+  "868364731529534": {
+    "120252274325360584": {
+      "name": "Desember - Vid 3",
+      "adset_id": "120252259169000584",
+      "total_spend": 46288,
+      "paused_at": "2026-09-30 00:05 WIB"
+    }
+  },
+  "1019832712800468": {
+    "120251438075050004": {
+      "name": "Desember - Img 5",
+      "adset_id": "120251438075170004",
+      "total_spend": 43908,
+      "paused_at": "2026-09-30 00:05 WIB"
     }
   }
 }
