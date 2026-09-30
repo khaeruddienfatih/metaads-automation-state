@@ -5,6 +5,12 @@
       "adset_id": "120252668566360704",
       "total_spend": 48285,
       "paused_at": "2026-09-27 00:10 WIB"
+    },
+    "120252664088870704": {
+      "name": "Haji_Img_09",
+      "adset_id": "120252557031780704",
+      "total_spend": 48435,
+      "paused_at": "2026-10-01 00:05 WIB"
     }
   },
   "947788760498911": {
@@ -43,14 +49,20 @@
     "120253870903210422": {
       "name": "Fikri - 9 Januari - 5",
       "adset_id": "120253870697970422",
-      "total_spend": 86877,
-      "paused_at": "2026-09-30 00:05 WIB"
+      "total_spend": 87754,
+      "paused_at": "2026-10-01 00:05 WIB"
     },
     "120253870868730422": {
       "name": "Fikri - Desember - 4",
       "adset_id": "120253870697980422",
-      "total_spend": 83111,
-      "paused_at": "2026-09-30 00:05 WIB"
+      "total_spend": 88212,
+      "paused_at": "2026-10-01 00:05 WIB"
+    },
+    "120253870838200422": {
+      "name": "Fikri - November RA - 3",
+      "adset_id": "120253870698010422",
+      "total_spend": 61102,
+      "paused_at": "2026-10-01 00:05 WIB"
     }
   },
   "814396810761205": {
@@ -59,6 +71,12 @@
       "adset_id": "120253445763960019",
       "total_spend": 42047,
       "paused_at": "2026-09-28 00:06 WIB"
+    },
+    "120253509389020019": {
+      "name": "Riyadh Air - November - 1",
+      "adset_id": "120253509388840019",
+      "total_spend": 44151,
+      "paused_at": "2026-10-01 00:05 WIB"
     }
   },
   "521083143750270": {
@@ -113,8 +131,26 @@
     "120251798850630294": {
       "name": "Liburan Akhir Tahun | Desain 3 slide 1 | judul1",
       "adset_id": "120251798450560294",
-      "total_spend": 68580,
-      "paused_at": "2026-09-30 00:05 WIB"
+      "total_spend": 70063,
+      "paused_at": "2026-10-01 00:05 WIB"
+    },
+    "120251812124600294": {
+      "name": "12hari januari | 12_hari_januari_1.jpg | judul1",
+      "adset_id": "120251812124670294",
+      "total_spend": 42797,
+      "paused_at": "2026-10-01 00:05 WIB"
+    },
+    "120251822584340294": {
+      "name": "Liburan Akhir Tahun | Desain 2 slide 2 | judul1",
+      "adset_id": "120251822584150294",
+      "total_spend": 54730,
+      "paused_at": "2026-10-01 00:05 WIB"
+    },
+    "120251812124520294": {
+      "name": "Liburan Akhir Tahun | Desain 2 slide 2 | judul1",
+      "adset_id": "120251812124640294",
+      "total_spend": 50069,
+      "paused_at": "2026-10-01 00:05 WIB"
     }
   },
   "868364731529534": {
@@ -129,8 +165,16 @@
     "120251438075050004": {
       "name": "Desember - Img 5",
       "adset_id": "120251438075170004",
-      "total_spend": 43908,
-      "paused_at": "2026-09-30 00:05 WIB"
+      "total_spend": 44730,
+      "paused_at": "2026-10-01 00:05 WIB"
+    }
+  },
+  "1060984719243481": {
+    "120253100040380414": {
+      "name": "12 Hari | 12_hari_januari_5.jpg | judul1",
+      "adset_id": "120253100040460414",
+      "total_spend": 40439,
+      "paused_at": "2026-10-01 00:05 WIB"
     }
   }
 }
