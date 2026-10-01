@@ -25,6 +25,12 @@
       "adset_id": "120250201672240739",
       "total_spend": 42825,
       "paused_at": "2026-09-29 00:08 WIB"
+    },
+    "120250635703400739": {
+      "name": "Haji - Hanif Interest 1",
+      "adset_id": "120250635703380739",
+      "total_spend": 51812,
+      "paused_at": "2026-10-01 00:05 WIB"
     }
   },
   "1050343302646341": {
@@ -109,14 +115,20 @@
     "120254550221870427": {
       "name": "November | 10_Hari_Riyad_Air_3.jpg | judul1",
       "adset_id": "120254550222040427",
-      "total_spend": 45382,
-      "paused_at": "2026-09-30 00:05 WIB"
+      "total_spend": 76936,
+      "paused_at": "2026-10-01 00:05 WIB"
     },
     "120254550221770427": {
       "name": "9 Hari Januari | januari_3.jpg | judul1",
       "adset_id": "120254550222050427",
       "total_spend": 40069,
       "paused_at": "2026-09-30 00:05 WIB"
+    },
+    "120254562993460427": {
+      "name": "12 Hari Januari | 12_hari_januari_1.jpg | judul1",
+      "adset_id": "120254562993590427",
+      "total_spend": 45753,
+      "paused_at": "2026-10-01 00:05 WIB"
     }
   },
   "873443374652541": {
@@ -165,7 +177,7 @@
     "120251438075050004": {
       "name": "Desember - Img 5",
       "adset_id": "120251438075170004",
-      "total_spend": 44730,
+      "total_spend": 44763,
       "paused_at": "2026-10-01 00:05 WIB"
     }
   },
